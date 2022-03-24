@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Rate Of Dengue</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="static/css/style.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <link rel="stylesheet"  type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+  ::placeholder {
+    color:rgb(70, 70, 94);
+    opacity:2; /* Firefox */
+    font-weight: bold;
+  }
+  body{
+    overflow-y : auto;
+    
+  }
+  </style>
+  
+</head>
+<body>
+<div class="wrapper">
+  <div class="top-bar fix">
+    <div class="top-bar-links">
+      
+<div class="socialmedia">
+<ul>
+<li><a style="color: rgb(226, 26, 26);" href="/home">Home</a></li>
+<li><a style="color: rgb(68, 64, 64);" href="/dd">Disease Description</a></li>
+<li><a style="color: rgb(26, 24, 24);" href="/maps">Maps</a></li>
+<li><a style="color: rgb(70, 63, 63);" href="/prediction">Prediction </a></li>
+<li><a style="color: rgb(20, 19, 19);"  href="/about">About us</a></li>
+<a href="https://www.facebook.com" class="fa fa-facebook"></a>
+<a href="https://twitter.com" class="fa fa-twitter"></a>
+<a href="https://www.instagram.com" class="fa fa-instagram"></a>
+</ul>
+  </div>
+  <div class="image">
+   
+    <img src="../static/images/dengue.png" />
+    </div>
+
+
+   </div>      
+
+</div>
+
+ <div class="header-login">
+	<h1>Rate of Dengue Cases</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form name="myform" action="{{ url_for('predict')}}"method="post" onsubmit="return(validateform());">
+      <p>
+        Normalized difference vegetation index (NDVI) :<br>
+      </p>
+      <div class="col-md-4">
+        <div class="form-group">
+      <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="NDVI : Pixel northeast of city centroid" placeholder="NDVI : Pixel northeast of city centroid" required="required" /><br>
+      </div>
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="NDVI : Pixel northwest of city centroid" placeholder="NDVI : Pixel northwest of city centroid" required="required" /><br>
+      </div>
+      
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="NDVI : Pixel southeast of city centroid" placeholder="NDVI : Pixel southeast of city centroid" required="required" /><br>
+      </div>
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="NDVI : Pixel southwest of city centroid" placeholder="NDVI : Pixel southwest of city centroid" required="required" /><br>
+      </div>
+      
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="Percipitation Amount" placeholder="Current Percipitation Amount" required="required" /><br>
+        </div>
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="Current Air Temp." placeholder="Current Air Temp." required="required" /><br>
+      </div>
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="Average Air Temp." placeholder="Average Air Temp." required="required" /><br>
+        </div>
+
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="mean Dew Point temp." placeholder="mean Dew Point temp." required="required" /><br>
+      </div>
+
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="Avg. Percipitation Amount (Kg per m*2)" placeholder="Avg. Percipitation Amount (Kg per m*2)" required="required" /><br>
+      </div>
+      <div class="form-group">
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="Humidity Percantage" placeholder="Humidity Percantage" required="required" /><br>
+        </div>
+      <div class="form-group">
+        
+        <input style="width: 50%; margin-left: -45%;" type="text" style="background-color:rgba(219, 228, 236,0.5)" name="Stat. Avg. Temp" placeholder="Stat. Avg. Temp" required="required" /><br>
+        </div>
+      <div class="form-group"><button style="width: 25%; margin-left: 35%; " type="submit" class="btn btn-primary btn-block btn-large" style="margin-bottom: -1px;">Predict</button>
+    </div>
+  </div>
+        
+        <!--<a href="visual" class="btn btn-primary btn-block btn-large" style="text-decoration: none;">Visualize</a>-->
+    </form>
+    
+ </div>
+ 
+ <div>
+  <b> <p style="width: 100%; font-size: xx-large; margin-top: -45%; margin-left: 28%;">{{ prediction_text1 }}<br> {{ prediction_text }}<br> {{ prediction_text2 }}</p></b>
+  </div>
+
+</body>
+</html>

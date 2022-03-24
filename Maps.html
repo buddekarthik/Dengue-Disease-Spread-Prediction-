@@ -1,0 +1,83 @@
+<head>
+<title>Dengue Prediction System </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<style>
+.mySlides {display:none;}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="top-bar fix">
+			<div class="top-bar-links">
+        
+  
+<div class="socialmedia">
+<ul>
+  <li><a style="color: rgb(226, 26, 26);" href="/home">Home</a></li>
+  <li><a style="color: rgb(68, 64, 64);" href="/dd">Disease Description</a></li>
+  <li><a style="color: rgb(26, 24, 24);" href="/maps">Maps</a></li>
+  <li><a style="color: rgb(70, 63, 63);" href="/prediction">Prediction </a></li>
+  <li><a style="color: rgb(20, 19, 19);"  href="/about">About us</a></li>
+<a href="https://www.facebook.com" class="fa fa-facebook"></a>
+<a href="https://twitter.com" class="fa fa-twitter"></a>
+<a href="https://www.instagram.com" class="fa fa-instagram"></a>
+</ul>
+    </div>
+
+
+
+     </div>      
+
+</div>
+<header class="fix">
+<div class="image">
+ 
+<img src="../static/images/dengue.png" />
+</div>
+
+
+
+</header>
+
+<div class="w3-content w3-section" style="max-width:1200px" style="max-height:1200px">
+  <center><img class="mySlides" src="../static/images/2000.jpeg" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/2001.jpg" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/2002.jpg" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/2003.png" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/2004.jpg" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/2010.jpg" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/2010.png" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/2015.png" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/2018.jpg" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/images.jpeg" style="width:1200px" style="max-height:1200px"></center>
+  <center><img class="mySlides" src="../static/images/pie.png" style="width:1200px" style="max-height:1200px"></center>
+
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 3000); // Change image every 3 seconds
+}
+</script>
+
+        </div>
+</body>
+</html>
